@@ -1,6 +1,6 @@
 FROM alpine:3.9
 
-ARG CHEKY_VERSION="4.4"
+ARG CHEKY_VERSION="4.4.1"
 LABEL maintainer="Obyy https://github.com/obyy"
 
 RUN apk add --no-cache \
