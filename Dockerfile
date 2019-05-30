@@ -1,12 +1,13 @@
 FROM alpine:3.9
 
-ARG CHEKY_VERSION="4.4.1"
+ARG CHEKY_VERSION="4.4"
 LABEL maintainer="Obyy https://github.com/obyy"
 
 RUN apk add --no-cache \
     apache2 \
     php7 \
     php7-common \
+    php7-iconv \
     php7-sqlite3 \
     php7-xml \
     php7-gd php7-phar \
@@ -37,7 +38,7 @@ RUN apk add --no-cache \
   && echo "Servername localhost" >> /etc/apache2/httpd.conf \
   && cd /var/www/localhost/htdocs && rm index.html \
   && curl -sSL https://github.com/Blount/Cheky/archive/${CHEKY_VERSION}.tar.gz | tar -xz --strip-components=1 \
-  && chown -R apache:apache var \
+  && chown -R apache:apache . \
   && ln -s /var/www/localhost/htdocs/var /config
 
 USER apache

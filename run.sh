@@ -1,6 +1,6 @@
 #! /bin/sh
 echo Starting with UID=`id -u` and GID=`id -g` ...
-
+rm -- /var/www/localhost/htdocs/var/.lock 
 
 # cron task for check.php in background
 while true; do
